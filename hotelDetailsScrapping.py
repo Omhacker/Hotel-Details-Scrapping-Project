@@ -1,3 +1,64 @@
+# import requests  
+# from bs4 import BeautifulSoup  
+# import csv 
+
+# def webscrapper(web_url,f_name):
+
+    
+#     print("Thank you for sharing url and file name! \n⏳\nReading the content!")
+
+#     header = {
+#     'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+# }
+    
+#     response = requests.get(web_url, headers=header)
+
+#     if response.status_code == 200:
+#         print("Connected to the website!")
+#         print("")
+#         html_content = response.text
+
+#         soup = BeautifulSoup(html_content, 'html.parser')
+
+#         hotel_divs = soup.find_all("div", role="listitem")
+
+#         with open(f'{f_name}.csv','w',encoding='utf-8') as file_csv:
+#             writer = csv.writer(file_csv)
+#             writer.writerow(['hotel_name','hotel_location','hotel_price','hotel_rating','hotel_score','hotel_review','hotel_link'])
+        
+
+#             for details in hotel_divs:
+#                 hotel_name = details.find(name="div", class_="b87c397a13 a3e0b4ffd1").text.strip() 
+#                 hotel_name if hotel_name else "NA"
+#                 hotel_location = details.find(name="span",class_="d823fbbeed f9b3563dd4").text.strip() 
+#                 hotel_location if hotel_location  else "NA"
+#                 hotel_price = details.find(name="span",class_="b87c397a13 f2f358d1de ab607752a2").text.replace('₹ ','')
+#                 hotel_price if hotel_price  else "NA"
+#                 hotel_rating = details.find("div", class_="f63b14ab7a f546354b44 becbee2f63")
+#                 hotel_rating = hotel_rating.get_text(strip=True) if hotel_rating else "No rating"
+#                 hotel_score = details.find("div",class_="f63b14ab7a dff2e52086")
+#                 hotel_score = hotel_score.get_text(strip=True) if hotel_score else "No Score"
+#                 hotel_review = details.find(name="div",class_="fff1944c52 fb14de7f14 eaa8455879")
+#                 hotel_review = hotel_review.get_text(strip=True) if hotel_review else "No review"
+#                 hotel_link = details.find(name="a",href=True).get('href')
+#                 hotel_link if hotel_link else "NA"
+
+#                 writer.writerow([hotel_name,hotel_location,hotel_price,hotel_rating,hotel_score,hotel_review,hotel_link])
+
+        
+#             print("Scrapped Done!")
+    
+#     else:
+#         print(f"Connection failed! : {response.status_code}")
+
+
+# if __name__ == "__main__":
+#     web_url = input("Provide the url link! : ")
+#     file_name = input("Provide the file name : ")
+
+#     webscrapper(web_url,file_name)
+
+
 import streamlit as st 
 import requests
 from bs4 import BeautifulSoup
