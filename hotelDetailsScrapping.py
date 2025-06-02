@@ -1,3 +1,4 @@
+
 # import requests  
 # from bs4 import BeautifulSoup  
 # import csv 
@@ -32,7 +33,7 @@
 #                 hotel_name if hotel_name else "NA"
 #                 hotel_location = details.find(name="span",class_="d823fbbeed f9b3563dd4").text.strip() 
 #                 hotel_location if hotel_location  else "NA"
-#                 hotel_price = details.find(name="span",class_="b87c397a13 f2f358d1de ab607752a2").text.replace('₹ ','')
+#                 hotel_price = details.find(name="span",class_="b87c397a13 f2f358d1de ab607752a2").text.replace('₹ ','')
 #                 hotel_price if hotel_price  else "NA"
 #                 hotel_rating = details.find("div", class_="f63b14ab7a f546354b44 becbee2f63")
 #                 hotel_rating = hotel_rating.get_text(strip=True) if hotel_rating else "No rating"
@@ -97,7 +98,7 @@ def webscrapper(web_url, f_name):
                     hotel_location = "NA"
 
                 try:
-                    hotel_price = details.find(name="span", class_="b87c397a13 f2f358d1de ab607752a2").text.replace('₹ ', '')
+                    hotel_price = details.find(name="span", class_="b87c397a13 f2f358d1de ab607752a2").text.replace('₹ ', '')
                 except:
                     hotel_price = "NA"
 
@@ -155,5 +156,3 @@ if st.button("🚀 Scrape Hotels"):
                     st.download_button("📥 Download CSV", data=f, file_name=path, mime="text/csv")
     else:
         st.warning("⚠️ Please enter both the URL and a file name.")
-
-
