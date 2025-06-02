@@ -14,6 +14,7 @@ def webscrapper(web_url, f_name):
     response = requests.get(web_url, headers=header)
 
     if response.status_code == 200:
+        # st.success("✅ Connected to the website!")
         html_content = response.text
         soup = BeautifulSoup(html_content, 'html.parser')
         hotel_divs = soup.find_all("div", role="listitem")
@@ -61,7 +62,6 @@ def webscrapper(web_url, f_name):
 # ---------------------------------------------
 # 🌐 Streamlit UI
 # ---------------------------------------------
-
 st.set_page_config(page_title="Hotel Details Scraper", layout="centered")
 
 st.title("🏨 Hotel Booking Web Scraper")
